@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
 import java.io.IOException;
 import java.time.Instant;
 
+import static com.expandtesting.utils.TestDataUtils.getJsonData;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 @Slf4j
@@ -22,9 +23,9 @@ public class AuthenticationTests {
     public static CreateNote createNote;
 
 
-    public static void setup() {
+    public static void setup(String BASEURL) {
         requestSpec = new RequestSpecBuilder()
-                .setBaseUri("https://practice.expandtesting.com/notes/api")
+                .setBaseUri(BASEURL)
                 .setContentType("application/json").setAccept("application/json")
                 .build();
     }

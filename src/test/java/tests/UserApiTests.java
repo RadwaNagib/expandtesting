@@ -12,6 +12,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
 
+import static com.expandtesting.utils.TestDataUtils.getJsonData;
 import static org.testng.TestRunner.PriorityWeight.priority;
 
 @Slf4j
@@ -20,11 +21,12 @@ class UserApiTests extends AuthenticationTests {
     UserApi userApi;
     protected  static   String token;
     SoftAssert softAssert;
+    private static final String baseurl = getJsonData("browser_navigate", "baseurl_expand_testing");
 
 
     @BeforeAll
     public static void registerUser() throws IOException{
-        setup();
+        setup(baseurl);
 
         Response response=registerNewUser();
         SoftAssert softAssert1=new SoftAssert();

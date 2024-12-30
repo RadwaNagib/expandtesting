@@ -11,18 +11,22 @@ import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
 
+import static com.expandtesting.utils.TestDataUtils.getJsonData;
+
 
 @Slf4j
 class NoteApiTests extends AuthenticationTests {
+
     //instance declaration
     NoteApi noteApi;
 
     protected static String token;
     protected static String mid;
+    private static final String baseurl = getJsonData("browser_navigate", "baseurl_expand_testing");
 
     @BeforeAll
     public static void  registerLoginUser() throws IOException{
-        setup();
+        setup(baseurl);
         AuthenticationTests.registerNewUser();
         Response response1=login();
         token = response1.jsonPath().getString("data.token");

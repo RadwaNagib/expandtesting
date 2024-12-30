@@ -8,9 +8,7 @@ import java.util.Properties;
 
 public class TestDataUtils {
 
-    public final static String Test_Data = "src/main/resources/testData.user/user_create.json";
-    public final static String Enviroment_Path = "src/main/resources/testData/Enviroment.json";
-
+    public final static String Test_Data = "src/test/resources/testdata.browser/";
 
     //TODO: Read data from json file
     public static String getJsonData(String jsonFilename, String field) {
@@ -25,19 +23,6 @@ public class TestDataUtils {
             ;
         }
         return "";
-    }
-
-
-    //TODO: get properties from .properties file
-    public static String getEnvironmentPropertyValue(String key) {
-        try {
-            Properties properties = new Properties();
-            properties.load(new FileInputStream(Enviroment_Path));
-            return properties.getProperty(key);
-        } catch (Exception e) {
-            System.out.println("can't Access BASE URL");
-            return "";
-        }
     }
 
 }
